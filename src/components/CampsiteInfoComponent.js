@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem,
+import {Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem,
     Button, Modal, ModalHeader, ModalBody, Label } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
@@ -136,7 +136,6 @@ function RenderComments({comments, postComment, campsiteID}) {
     }
     return <div />;
 }
-
     function CampsiteInfo(props) {
         if (props.isLoading) {
             return (

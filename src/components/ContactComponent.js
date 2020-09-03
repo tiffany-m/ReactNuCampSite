@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Breadcrumb, BreadcrumbItem,
     Button, Label, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { Control, Form, Errors, actions } from 'react-redux-form';
+import { Control, Form, Errors } from 'react-redux-form';
 
 const required = val => val && val.length;
 const maxLength = len => val => !val || (val.length <= len);
@@ -34,10 +34,18 @@ class Contact extends Component {
     }
 
     handleSubmit(values) {
-        console.log('Current state is: ' + JSON.stringify(values));
-        alert('Current state is: ' + JSON.stringify(values));
+        this.props.postFeedback(values);
         this.props.resetFeedbackForm();
     }
+
+    // handleSubmit(values) {
+    //     console.log('Current state is: ' + JSON.stringify(values));
+    //     alert('Current state is: ' + JSON.stringify(values));
+    //     this.props.resetFeedbackForm();
+    // }
+
+
+
 
     render() {
         return (
@@ -48,12 +56,11 @@ class Contact extends Component {
                             <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
                             <BreadcrumbItem active>Contact Us</BreadcrumbItem>
                         </Breadcrumb>
-                        <h2>Contact Us</h2>
+                            <h2>Contact Us</h2>
                         <hr />
                     </div>
                 </div>
-
-                <div className="row row-content align-items-center">
+                <div className="row align-items-center">
                     <div className="col-sm-4">
                         <h5>Our Address</h5>
                         <address>
@@ -68,7 +75,7 @@ class Contact extends Component {
                     </div>
                 </div>
                 <div className="row row-content">
-                    <div className="col-12">
+                    <div className="col-12">    
                         <h2>Send us your Feedback</h2>
                         <hr />
                     </div>
